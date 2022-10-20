@@ -109,12 +109,16 @@ const RegisterResult = (props) => {
           )}
 
           {/* Đăng ký theo nhóm */}
-          <div
-            className="badge-info p-2 rounded mt-2"
-            style={{ userSelect: "none" }}
-          >
-            {result.registerType}
-          </div>
+          {res.teamLeader && (
+            <div
+              className="badge-info p-2 rounded mt-2"
+              style={{ userSelect: "none" }}
+            >
+              {res.teamLeader != result.name
+                ? `Trưởng nhóm: ${res.teamLeader}`
+                : "Nhóm"}
+            </div>
+          )}
         </div>
 
         <div className="col-6 col-md-9 row mx-0 d-flex">
