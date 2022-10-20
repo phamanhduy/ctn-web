@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Row, Col, Typography, Avatar, Icon, Input } from "antd";
+import { Typography, Avatar, Icon, Input } from "antd";
 
 const result = {
   name: "Đặng Thị Mỹ Trinh",
@@ -72,7 +72,7 @@ Thời gian về chùa
 const { Title } = Typography;
 
 const NoBoderInput = (props) => (
-  <Input {...props} className={`border-0 ${props.className}`} />
+  <Input {...props} className={`border-0 bg-light ${props.className}`} />
 );
 
 const RegisterResult = (props) => {
@@ -82,7 +82,7 @@ const RegisterResult = (props) => {
         Thông tin đăng ký và kết quả phân ban
       </Title>
       <div className="row">
-        <div className="col-6 col-md-3  border-right">
+        <div className="col-6 col-md-3  border-end">
           <div className="d-flex flex-column align-items-center border-bottom pb-2">
             <Avatar size={100} icon="user" className="mb-2" />
             <NoBoderInput
@@ -94,14 +94,14 @@ const RegisterResult = (props) => {
           {/* Ket qua phan ban */}
           {res.isDuyet ? (
             <div
-              className="badge-success p-2 rounded mt-2"
+              className="badge bg-success p-2 rounded mt-2"
               style={{ userSelect: "none" }}
             >
               {res.tenBanNguyenVong}
             </div>
           ) : (
             <div
-              className="badge-warning p-2 rounded mt-2"
+              className="badge bg-warning p-2 rounded mt-2"
               style={{ userSelect: "none" }}
             >
               Đang chờ xét duyệt ban
@@ -111,7 +111,7 @@ const RegisterResult = (props) => {
           {/* Đăng ký theo nhóm */}
           {res.teamLeader && (
             <div
-              className="badge-info p-2 rounded mt-2"
+              className="badge bg-info p-2 rounded mt-2"
               style={{ userSelect: "none" }}
             >
               {res.teamLeader != result.name
@@ -122,7 +122,7 @@ const RegisterResult = (props) => {
         </div>
 
         <div className="col-6 col-md-9 row mx-0 d-flex">
-          <div className="col-12 col-md-6 col-lg-4 pl-lg-0">
+          <div className="col-12 col-md-6 col-lg-4 ps-lg-0">
             <div className="mb-2">
               <div>Giới tính: </div>
               <NoBoderInput value={result.gender} placeholder="Giới tính" />
