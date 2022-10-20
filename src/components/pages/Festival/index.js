@@ -1,7 +1,7 @@
 import { Tabs } from "antd";
 import React from "react";
 import "./style.scss";
-import { Typography } from "antd";
+import { Typography, Button } from "antd";
 const { Title } = Typography;
 
 // import '../../../assets/images/layouts/festival/BAN_MT.jpg'
@@ -35,27 +35,27 @@ export const Festival = () => {
     },
   ];
   return (
-    // <div class = 'festival_wrap'>
-    <Tabs defaultActiveKey="1" tabPosition="left">
+    <div>
+    <Title style={{ padding: '10px 40px' }}>Giới thiệu các ban tham gia Công quả Đại Lễ!</Title>
+    <Tabs defaultActiveKey="0" tabPosition="left">
       {fest_infos.map((data, i) => (
         <Tabs.TabPane tab={data.tab} key={i}>
           <div class="festival_item">
-            <Title>{data.tab}</Title>
+            <Title>{`BAN ${data.tab}`}</Title>
 
             <div class="festival_item_body">
               <div class="container_img">
-                <img src="/images/festival/BAN_MT.jpg"></img>
+                <img style={{ width: '40%' }} src="/images/festival/BAN_MT.jpg"></img>
               </div>
               <div class="container_content">{data.content}</div>
+              <Button style={{ background: 'green', height: '60px' }}>
+                <Title style= {{ color: 'white' }}>Đăng ký ngay!!</Title>
+              </Button>
             </div>
           </div>
-          {/* <Image
-            width={200}
-            // src="
-          /> */}
         </Tabs.TabPane>
       ))}
     </Tabs>
-    // </div>
+    </div>
   );
 };

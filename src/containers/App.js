@@ -102,7 +102,7 @@ class App extends React.Component {
           <AppRoute path="/rooms" component={Rooms} layout={MainLayout} />
           {/* <AppRoute path="/conversation" component={Message} layout={MainLayout} /> */}
           <AppRoute path="/dashboard" component={Dashboard} layout={MainLayout} />
-          <AppRoute path="/festival" component={Festival} layout={HomeLayout} />
+          <AppRoute path="/festival" component={Festival} layout={BlankLayout} />
 
           <AppRoute path="/step2" component={Step2} layout={RoomLayout} />
           <AppRoute path="/step3" component={Step3} layout={RoomLayout} />
