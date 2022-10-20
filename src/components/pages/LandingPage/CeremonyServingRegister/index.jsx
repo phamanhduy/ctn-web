@@ -1,30 +1,30 @@
-import { Icon, Steps } from "antd";
-import React, { useState } from "react";
-import Step1 from "../Steps/Step1";
-import Step2 from "../Steps/Step2";
-import Step3 from "../Steps/Step3";
+import { Icon, Steps } from 'antd';
+import React, { useState } from 'react';
+import Step1 from '../Steps/Step1';
+import Step2 from '../Steps/Step2';
+import Step3 from '../Steps/Step3';
 
 const { Step } = Steps;
 
 const CeremonyServingRegister = (props) => {
-  const { submitTarget = "/dashboard" } = props;
+  const { submitTarget = '/dashboard' } = props;
   const [step, setStep] = useState(0);
   const submitStep = (s) => () => {
     setStep(s);
   };
   let stepTemplate = [
     {
-      title: "Thông tin cơ bản",
+      title: 'Thông tin cơ bản',
       template: <Step1 submitStep={submitStep(1)} />,
       current: 0,
     },
     {
-      title: "Thông tin đầy đủ",
+      title: 'Thông tin đầy đủ',
       template: <Step2 submitStep={submitStep(2)} />,
       current: 1,
     },
     {
-      title: "Thông tin đầy đủ",
+      title: 'Thông tin đầy đủ',
       template: <Step3 submitTarget={submitTarget} />,
       current: 2,
     },
