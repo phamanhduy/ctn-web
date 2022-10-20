@@ -1,11 +1,11 @@
 /* eslint no-undef: 0 */
 /* eslint arrow-parens: 0 */
-import React from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import _ from "lodash";
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import _ from 'lodash';
 
-import { userActions, scheduleActions } from "../../../_actions";
+import { userActions, scheduleActions } from '../../../_actions';
 import {
   Layout,
   Menu,
@@ -16,16 +16,16 @@ import {
   Input,
   Select,
   Col,
-} from "antd";
+} from 'antd';
 
-import AgentAvatar from "../../Basic/AgentAvatar";
+import AgentAvatar from '../../Basic/AgentAvatar';
 
-import Step1 from "./Steps/Step1";
-import Step2 from "./Steps/Step2";
-import Step3 from "./Steps/Step3";
+import Step1 from './Steps/Step1';
+import Step2 from './Steps/Step2';
+import Step3 from './Steps/Step3';
 
-import { Helmet } from "react-helmet";
-import CeremonyServingRegister from "./CeremonyServingRegister";
+import { Helmet } from 'react-helmet';
+import CeremonyServingRegister from './CeremonyServingRegister';
 
 const { Step } = Steps;
 
@@ -39,7 +39,7 @@ export class Home extends React.Component {
     this.state = {
       error: false,
       loading: false,
-      step: "step1",
+      step: 'step1',
     };
   }
 
@@ -745,7 +745,7 @@ const mapStateToProps = ({ auth, common }) => {
 const mapDispatchToProps = (dispatch) => ({
   onClickLogout: () => userActions.onUserLogout()(dispatch),
   openLogin: dispatch(userActions.openLogin),
-  redirect: (payload) => dispatch({ type: "REDIRECT_TO", payload }),
+  redirect: (payload) => dispatch({ type: 'REDIRECT_TO', payload }),
   checkCode: dispatch(scheduleActions.checkCode),
 });
 
