@@ -36,6 +36,7 @@ import {
 } from '../_actions';
 
 import { store } from '../store';
+import RegisterResult from '../components/pages/RegisterResult';
 
 const mapStateToProps = state => {
   return {
@@ -103,7 +104,8 @@ class App extends React.Component {
           <AppRoute path="/step2" component={Step2} layout={RoomLayout} />
           <AppRoute path="/step3" component={Step3} layout={RoomLayout} />
           {/* <AppRoute path="/waiting-room/:code" component={WaitingRoom} layout={MainLayout}/> */}
-          <AppRoute path="/" component={LandingPage} auth={false} layout={BlankLayout}/>
+          <AppRoute path="/" component={LandingPage} auth={false} layout={BlankLayout} exact={true}/>
+          <AppRoute path="/register-result" component={RegisterResult} layout={BlankLayout} />
         </Switch>
       );
     }
