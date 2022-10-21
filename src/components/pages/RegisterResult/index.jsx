@@ -94,14 +94,14 @@ const RegisterResult = (props) => {
           {/* Ket qua phan ban */}
           {res.isDuyet ? (
             <div
-              className="badge bg-success p-2 rounded mt-2"
+              className="d-block badge bg-success p-2 rounded mt-2"
               style={{ userSelect: 'none' }}
             >
               {res.tenBanNguyenVong}
             </div>
           ) : (
             <div
-              className="badge bg-warning p-2 rounded mt-2"
+              className="d-block badge bg-warning p-2 rounded mt-2"
               style={{ userSelect: 'none' }}
             >
               Đang chờ xét duyệt ban
@@ -111,7 +111,7 @@ const RegisterResult = (props) => {
           {/* Đăng ký theo nhóm */}
           {res.teamLeader && (
             <div
-              className="badge bg-info p-2 rounded mt-2"
+              className="d-block badge bg-info p-2 rounded mt-2"
               style={{ userSelect: 'none' }}
             >
               {res.teamLeader != result.name

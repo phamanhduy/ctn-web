@@ -1,26 +1,20 @@
 // import Header from './Basic/Header';
 import React from 'react';
-import {
-  Spin,
-  Icon,
-  Layout,
-  LocaleProvider,
-} from 'antd';
+import { Spin, Icon, Layout, LocaleProvider } from 'antd';
 import Moment from 'react-moment';
 import moment from 'moment/min/moment-with-locales';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import { Switch } from 'react-router-dom';
 
-import {IntlProvider} from "react-intl";
+import { IntlProvider } from 'react-intl';
 
-import AppLocale from "../lngProvider";
-import MainLayout from "./Layouts/MainLayout";
-import RoomLayout from "./Layouts/RoomLayout";
-import {BlankLayout} from "./Layouts/BlankLayout";
+import AppLocale from '../lngProvider';
+import MainLayout from './Layouts/MainLayout';
+import RoomLayout from './Layouts/RoomLayout';
+import { BlankLayout } from './Layouts/BlankLayout';
 
-
-import config from '../config'
+import config from '../config';
 import { REDIRECT } from '../constants/actionTypes';
 
 import Rooms from '../components/pages/Rooms';
@@ -31,48 +25,46 @@ import AppRoute from './AppRoute';
 import Step2 from '../components/pages/Home/Step2';
 import Step3 from '../components/pages/Home/Step3';
 
-import {
-  appActions,
-} from '../_actions';
+import { appActions } from '../_actions';
 
 import { store } from '../store';
 import { HomeLayout } from './Layouts/HomeLayout';
 import { Festival } from '../components/pages/Festival';
 import RegisterResult from '../components/pages/RegisterResult';
+import { FooterLessLayout } from './Layouts/FooterlessLayout';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     appLoaded: state.common.appLoaded,
-    redirectTo: state.common.redirectTo
-  }
+    redirectTo: state.common.redirectTo,
+  };
 };
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   onLoad: () => appActions.load()(dispatch),
   onRedirect: () => dispatch({ type: REDIRECT }),
   addSettings: () => {
     dispatch({
       type: 'ADD_SETTINGS',
       payload: {
-        navCollapsed:false,
-        navStyle:"NAV_STYLE_FIXED",
-        layoutType:"LAYOUT_TYPE_FULL",
-        themeType:"THEME_TYPE_LITE",
-        themeColor:"THEME_COLOR",
-        pathname:"/social-apps/profile",
+        navCollapsed: false,
+        navStyle: 'NAV_STYLE_FIXED',
+        layoutType: 'LAYOUT_TYPE_FULL',
+        themeType: 'THEME_TYPE_LITE',
+        themeColor: 'THEME_COLOR',
+        pathname: '/social-apps/profile',
         width: 1920,
-        isDirectionRTL:false,
+        isDirectionRTL: false,
         locale: {
-          languageId:"english",
-          locale:"en",
-          name:"English",
-          icon:"us",
-        }
-      }
+          languageId: 'english',
+          locale: 'en',
+          name: 'English',
+          icon: 'us',
+        },
+      },
     });
   },
 });
-
 
 class App extends React.Component {
   componentWillReceiveProps(nextProps) {
@@ -102,14 +94,32 @@ class App extends React.Component {
           {/* <AppRoute path="/login" component={Login} layout={BlankLayout} auth={false} /> */}
           <AppRoute path="/rooms" component={Rooms} layout={MainLayout} />
           {/* <AppRoute path="/conversation" component={Message} layout={MainLayout} /> */}
-          <AppRoute path="/dashboard" component={Dashboard} layout={MainLayout} />
-          <AppRoute path="/festival" component={Festival} layout={BlankLayout} />
+          <AppRoute
+            path="/dashboard"
+            component={Dashboard}
+            layout={MainLayout}
+          />
+          <AppRoute
+            path="/festival"
+            component={Festival}
+            layout={BlankLayout}
+          />
 
           <AppRoute path="/step2" component={Step2} layout={RoomLayout} />
           <AppRoute path="/step3" component={Step3} layout={RoomLayout} />
           {/* <AppRoute path="/waiting-room/:code" component={WaitingRoom} layout={MainLayout}/> */}
-          <AppRoute path="/" component={LandingPage} auth={false} layout={HomeLayout}/>
-          <AppRoute path="/register-result" component={RegisterResult} layout={BlankLayout} />
+          <AppRoute
+            path="/"
+            component={LandingPage}
+            auth={false}
+            layout={HomeLayout}
+            exact
+          />
+          <AppRoute
+            path="/register-result"
+            component={RegisterResult}
+            layout={FooterLessLayout}
+          />
         </Switch>
       );
     }
